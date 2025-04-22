@@ -1,0 +1,298 @@
+*, ::before, ::after
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  margin-bottom: 0px
+  outline: 0 !important
+@import ./mixins/_scrollbar
+@import url('@/libs/krel_toast/toast.sass')
+    
+.krel_boocking
+  display: flex 
+  justify-content: space-between
+  flex-wrap: wrap
+
+.boocking__item 
+  position: relative
+  width: calc((100% - 30px) / 3)
+  border-radius: 30px 
+  height: 834px
+  padding: 27px 40px 35px 30px
+  background: #fff
+  display: flex 
+  flex-direction: column
+  overflow: hidden
+
+.boocking__item__title  
+  font-size: 24px
+  line-height: 31px
+  color:  #333333
+  margin-bottom: 22px
+  font-weight: 600
+
+  span
+    color: #939393
+    display: block
+    font-size: 15px
+    line-height: 27px
+    font-weight: 400
+.boocking__item__serch__cont
+  width: calc(100% - 8px)
+  padding-right: 32px
+  background: #fff
+  margin-bottom: -65px
+  z-index: 2
+.boocking__item__serch
+  padding: 8px 20px 8px 44px
+  background: #F9F9F9
+  border-radius: 30px
+  margin-bottom: 22px
+  position: relative
+ 
+  input
+    color: #939393
+    background: none 
+    border: none
+    width: 100%
+  &:before 
+    position: absolute
+    content: ''
+    display: block
+    width: 14px
+    height: 14px 
+    background:  url('../img/search_icon.svg')  
+    top: 14.5px 
+    left: 20px
+
+.boocking__item__list
+  flex: 1
+  overflow-y: auto
+  padding-right: 40px
+  padding-top: 65px
+  @include scrollbars(5px, #309C93, #F9F9F9, 5px) 
+
+
+.boocking__item__list__item
+  border-radius: 30px
+  height: 176px
+  overflow: hidden 
+  margin-bottom: 15px
+  
+  cursor: pointer
+  color: #333
+
+.boocking__item__laoding
+  position: relative
+  overflow: hidden
+  &::after
+    position: absolute
+    content: ''
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: rgba(255, 255, 255, 0.7) url('../img/preloader.gif')
+    // background: rgba(242, 251, 249, 0.7) url('../preloader.gif')
+    background-repeat: no-repeat
+    background-position: center
+    z-index: 10000
+
+.boocking__item__thumb
+  display: flex 
+  justify-content: center 
+  align-items: center
+  width: 100%
+  height:  calc(100% - 92px)
+  position: absolute
+  background: #fff
+  flex-direction: column
+  font-size: 20px 
+  line-height: 36px
+  text-align: center
+  bottom: 0
+  left: 0
+  z-index: 5
+  strong 
+    color: #309C93
+    font-weight: 600
+
+  &:after 
+    content: ''
+    display: block
+    width: 63px
+    height: 64px 
+    background: url('../img/boocking__item__thumb.svg')
+    margin-top: 9px
+
+.boocking__item__thumb_no_record
+  &:after 
+    display: none
+  
+.boocking__item__thumb__complete
+  position: relative
+  overflow: hidden
+  &::after
+    position: absolute
+    content: ''
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: rgba(255, 255, 255, 0.7) 
+    // background: rgba(242, 251, 249, 0.7) url('../preloader.gif')
+    background-repeat: no-repeat
+    background-position: center
+    z-index: 10000
+    cursor: not-allowed
+
+
+.boocking__item__thumb_success
+  &::after
+    display: none
+
+.boocking__item__btn
+  font-family:  "Inter", sans-serif
+  font-size: 16px
+  font-weight: 500
+  margin-top: 40px
+  width: 100%
+  padding: 15px 0 
+  text-align: center 
+
+  line-height: 19px
+  background: #309C93
+  border-radius: 10px 
+  color: #fff 
+  cursor: pointer
+  width: calc(100% - 40px)
+  transition: 0.4s
+ 
+  svg 
+    margin-left: 10px
+
+
+.boocking__item__btn_back
+  margin-bottom: -20px
+  border: 1px solid #309C93
+  color: #309C93
+  background: none
+  display: none
+
+
+.boocking__item__btn_disable
+  pointer-events: none 
+  opacity: 0.8
+  background: gray
+
+.boocking__item__text
+  margin-bottom: 39px
+  strong
+    color: #309C93
+    font-weight: 600
+
+
+.boocking__item__field
+  margin-bottom: 22px
+  input, select 
+    padding: 14.5px 20px 
+    border-radius: 10px
+    background: #F9F9F9
+    border: none
+    width: 100%
+    font-size: 15px
+    line-height: 27px
+.boocking__item__field_code
+  input
+    width: 180px
+    font-size:  35px
+    text-align: center
+
+.boocking__select__cont
+  position: relative
+  select 
+    -webkit-appearance: none
+  &:before 
+    content: ''
+    width: 24px
+    height: 24px
+    display: block
+    background: url('../img/select_icon.svg')  
+    top: 16px
+    right: 20px
+    position: absolute
+
+
+.select_disabled
+  // pointer-events: none
+  opacity: 0.4
+  cursor: not-allowed
+
+
+.boocking__item__field__title
+  font-size: 20px
+  line-height: 26px
+  color: #333333
+  font-weight: 600
+  margin-bottom: 22px
+
+
+
+@media screen and (max-width: 1719px)
+  .boocking__item 
+    height: 779px
+    padding: 27px 20px 35px 30px
+  .boocking__item__serch__cont
+    padding-right: 13px
+  .boocking__item__list
+    padding-right: 25px  
+  .boocking__item__btn
+    width: calc(100% - 25px)  
+
+@media screen and (max-width: 1439px)
+  .boocking__item__list
+    padding-right: 20px
+  .boocking__item__btn
+    width: calc(100% - 20px)    
+    
+@media screen and (max-width: 1199px)
+  .boocking__item__title
+    font-size: 20px
+  .boocking__item__field__title
+    font-size: 18px
+    
+  .boocking__item__btn
+    width: 100%
+
+
+@media screen and (max-width: 991px)
+  .krel_boocking
+    position: relative
+    // height: 779px 
+  .boocking__item 
+    width: 100%
+    max-width: 500px
+    position: absolute 
+    top: 0
+    left: 50% 
+    transform: translateX(-50%)
+    opacity: 0
+    transition: opacity 0.4s
+    z-index: -1 
+    height: auto
+
+  .boocking__item__list
+    flex: auto
+    height: 539px  
+  .boocking__item_active
+    opacity: 1
+    z-index: 3
+    position: relative
+
+  .boocking__item__btn_back
+    display: block  
+    
+
+
+@import ./krel_services
+@import ./krel_staffs
+@import ./boocking_stage_three
