@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Pull repository on server
         run: |
-          ssh -o StrictHostKeyChecking=no -i .ssh/id_ed25519 svstenew_deployuser@svstenew.beget.tech \
+          ssh -o StrictHostKeyChecking=no -i secrets.SSH_KEY  svstenew_deployuser@svstenew.beget.tech \
           "git fetch origin && git reset --hard origin/main"
