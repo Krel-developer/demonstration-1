@@ -19,6 +19,5 @@ jobs:
 
       - name: Pull repository on server
         run: |
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
-          ssh svstenew_deployuser@svstenew.beget.tech \
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 svstenew_deployuser@svstenew.beget.tech \
           "git fetch origin && git reset --hard origin/main"
