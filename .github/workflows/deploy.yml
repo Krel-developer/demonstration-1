@@ -12,9 +12,9 @@ jobs:
     steps:
       - name: Setup SSH key
         run: |
-          mkdir -p ~/.ssh
+          mkdir -p .ssh
           echo "AAAAB3NzaC1yc2EAAAADAQABAAABgQDBBMqMT70Q8oPWjSbjRnxXdTyVUkBBQS7hPitIOBEbNPJzhJlt4HIubS547GPznltU+GizDkgKL+/BiEXI2W6IEPJnm8uUFPV1gbOuPYT6Dv8yKU5WyunKjRn1NhRAdjNJ14kTwcUEzfVdZTA3+GFxbVB2C7sb2S2qjFQof4ICJ5Z8tSPTt7cDKIEfY9d87OyG1PwS8uavxuaDOL++8mWEtMnoY2eEMDHpWhS/vT6ZWVAcOQnaEZIgrGLlsDGctEwgjT19/NmBgeNjPzULkv/KILjtQFf52rMNCNipUapwUc8yZ+3Y2lvXdxeTAtZ4t6Q821S/DG5yf2KGawkHIBAsopMPoS4mt3ssvG9N3sv5F/DuUyoBP9lfh3U40Pu4ebu1uoQi2sSrHuv8Gj/XUkOcbReNSWsgvHf1EfTInNMJzBPkuj9GNMRDs2KDVLmy6oavGzrO34aZFHxkkmQbBOh9GF6vTD8EOF+9GepIr3pqpVXWqbZKAA7U80Dvkfst07s=" >> ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/id_ed25519
+          chmod 600 .ssh/id_ed25519
           echo "${{ secrets.test }}" > ~/.ssh/id_ed25519
          
 
