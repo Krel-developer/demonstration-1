@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4        # версия с поддержкой Node.js 24
-        uses: actions/setup-node@v4       # более новая версия
-          with:
-            node-version: 24
+      - uses: actions/checkout@v4        # версия с поддержкой Node.js 24
+      - uses: actions/setup-node@v4       # более новая версия
+        with:
+          node-version: 24
 
       - name: Setup SSH
         run: |
