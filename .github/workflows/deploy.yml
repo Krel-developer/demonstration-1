@@ -1,0 +1,23 @@
+name: Deploy to Beget
+
+on:
+  push:
+    branches:
+      - main # ветка, от которой деплой
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.test }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Pull repository on server
+        run: |
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+          ssh svstenew_deployuser@svstenew.beget.tech \
+          "git fetch origin && git reset --hard origin/main"
